@@ -10,3 +10,4 @@ while(<>){
 	$target .= "/$sub" if defined $sub;
 	say "$name: clones/$name ; \$(LN) clones/$target \$@";
 }
+
