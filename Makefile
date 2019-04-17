@@ -28,7 +28,7 @@ Ignore += names.mk
 names.mk: names.step names.pl
 	$(PUSH)
 
-
+Ignore += $(branches)
 
 ######################################################################
 

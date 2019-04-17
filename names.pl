@@ -9,5 +9,6 @@ while(<>){
 	my $target = $name;
 	$target .= "/$sub" if defined $sub;
 	say "$name: clones/$name ; \$(LN) clones/$target \$@";
+	say "branches += $name";
 }
 
