@@ -39,6 +39,7 @@ alldirs = makestuff $(active)
 %/Makefile: makes/%.mk
 	cd $* && $(LNF) $(CURDIR)/$< Makefile
 
+Sources += branch.mk
 makes/%.mk:
 	$(MAKE) makes
 	$(CP) branch.mk $@
