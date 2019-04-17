@@ -20,7 +20,7 @@ $(ms)/Makefile:
 ######################################################################
 
 Ignore += clones
-clones:
+makes clones:
 	$(mkdir)
 
 Sources += names.step names.pl
@@ -29,6 +29,19 @@ names.mk: names.step names.pl
 	$(PUSH)
 
 Ignore += $(branches)
+
+Sources += $(wildcard makes/*.mk)
+
+fl = $(wildcard *)
+active = $(filter $(fl), $(branches))
+alldirs = makestuff $(active)
+
+%/Makefile: makes/%.mk
+	cd $* && $(LNF) $(CURDIR)/$< Makefile
+
+makes/%.mk:
+	$(MAKE) makes
+	$(CP) branch.mk $@
 
 ######################################################################
 
