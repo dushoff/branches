@@ -12,8 +12,10 @@ ms = makestuff
 Ignore += $(ms) Makefile
 Makefile: $(ms)/Makefile
 	touch $@
-$(ms)/Makefile:
-	ls ../makestuff/Makefile && /bin/ln -s ../makestuff 
+
+$(ms)/Makefile: dir = ~/gitroot/branches/makestuff/
+$(ms)/Makefile: 
+	ls $(dir) Makefile && /bin/ln -s $(dir)
 
 ######################################################################
 
