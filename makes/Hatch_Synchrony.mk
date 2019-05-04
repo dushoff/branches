@@ -21,10 +21,15 @@ $(ms)/Makefile:
 
 ## Branch content
 
+Sources += $(wildcard *.Rmd)
+
+MarkdownProject.html: MarkdownProject.Rmd
+
 ######################################################################
 
 ### Makestuff rules
 
+-include $(ms)/pandoc.mk
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
 
