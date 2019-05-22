@@ -7,7 +7,6 @@ current: target
 Sources += Makefile README.md
 msrepo = https://github.com/dushoff
 ms = makestuff
-include names.mk
 -include $(ms)/os.mk
 -include $(ms)/perl.def
 
@@ -18,6 +17,8 @@ $(ms)/Makefile:
 	ls $@
 
 ######################################################################
+
+include names.mk
 
 Ignore += clones
 makes clones:
@@ -32,14 +33,18 @@ Ignore += $(branches)
 
 Sources += $(wildcard makes/*.mk)
 
+## Track branch directories if they've been made
 fl = $(wildcard *)
 active = $(filter $(fl), $(branches))
 alldirs = makestuff $(active)
 
+%.setup: % %/Makefile ;
+.PRECIOUS: %/Makefile
 %/Makefile: makes/%.mk
 	cd $* && $(LNF) $(CURDIR)/$< Makefile
 
 Sources += branch.mk
+.PRECIOUS: makes/%.mk
 makes/%.mk:
 	$(MAKE) makes
 	$(CP) branch.mk $@
