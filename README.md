@@ -5,6 +5,7 @@ Information about the repos is kept in names.step, which is used to make names.m
 Make a new directory by using <dirname>.setup
 
 To deal with subdirs, we first clone things into "clones" (where we're not meant to look) and then link to their names. If we are using two subdirs from the same repo, these should generally be based on different clones
+* Or would it be better to access things from clones? Who knows?
 
 In theory, we can deal with branches by either:
 * keeping the Makefile simple, and letting the branches share inside one directory (use checkout)
