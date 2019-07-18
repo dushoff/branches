@@ -18,16 +18,16 @@ $(ms)/Makefile:
 
 ######################################################################
 
+Sources += names.step names.pl
+Ignore += names.mk 
+names.mk: names.step names.pl
+	$(PUSH)
+
 include names.mk
 
 Ignore += clones
 makes clones:
 	$(mkdir)
-
-Sources += names.step names.pl
-Ignore += names.mk 
-names.mk: names.step names.pl
-	$(PUSH)
 
 Ignore += $(branches)
 
@@ -37,6 +37,10 @@ Sources += $(wildcard makes/*.mk)
 fl = $(wildcard *)
 active = $(filter $(fl), $(branches))
 alldirs = makestuff $(active)
+
+######################################################################
+
+# epidemicInsurance.setup:
 
 %.setup: % %/Makefile ;
 .PRECIOUS: %/Makefile
