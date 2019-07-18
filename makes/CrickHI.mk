@@ -26,6 +26,5 @@ $(ms)/Makefile:
 ### Makestuff rules
 
 -include $(ms)/git.mk
--include $(ms)/git.mk
 -include $(ms)/visual.mk
 
