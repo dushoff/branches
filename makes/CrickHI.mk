@@ -21,10 +21,22 @@ $(ms)/Makefile:
 
 ## Branch content
 
+Sources += $(wildcard src/*.R)
+Sources += $(wildcard explore/*.R)
+
+## Genetic data from dropbox
+genDrop: dir = ~/Dropbox/epitopic-dist-flu
+genDrop:
+	$(linkdirname)
+
+## Now use wrapR in explore
+alldirs += explore
+
 ######################################################################
 
 ### Makestuff rules
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
+-include $(ms)/stepR.mk
 
