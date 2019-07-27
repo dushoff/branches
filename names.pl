@@ -5,7 +5,7 @@ while(<>){
 	chomp;
 	next if /^#/;
 	my ($name, $h, $sub) = split;
-	say "clones/$name: ; (\$(MAKE) clones && cd clones && git clone $h)";
+	say "clones/$name: ; (\$(MAKE) clones && cd clones && git clone $h $name)";
 
 	my $target = $name;
 	$target .= "/$sub" if defined $sub;

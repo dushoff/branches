@@ -18,10 +18,15 @@ $(ms)/Makefile:
 
 ## Branch content
 
+Sources += $(wildcard *.R)
+
+Script.Rout: Script.R
+
 ######################################################################
 
 ### Makestuff rules
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
+-include $(ms)/wrapR.mk
 

@@ -17,6 +17,7 @@ $(ms)/Makefile:
 ######################################################################
 
 ## Branch content
+SecondMCMC.Rout: SecondMCMC.R
 
 ######################################################################
 
@@ -24,4 +25,5 @@ $(ms)/Makefile:
 
 -include $(ms)/git.mk
 -include $(ms)/visual.mk
+-include $(ms)/wrapR.mk
 
